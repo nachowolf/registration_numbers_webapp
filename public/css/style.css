@@ -1,0 +1,102 @@
+
+
+header{
+    text-align: center;
+    padding-top:15px;
+    font-size:50px;
+    font-family:"Courier New";
+    border-bottom:solid;
+    background:blue;
+    font-weight:bold;
+  }
+  
+  .fa-car{
+    color:silver;
+    transform: rotateZ(-10deg)
+  }
+  
+  .left{
+
+    float:left;
+    display:inline-block;
+    width:70.1%;
+
+  }
+  
+  .right{
+    /* border:solid; */
+    padding-left:10px;
+    display:inline-block;
+    width:28%;
+    height:230px;
+    text-align:center;
+
+  }
+  
+  input[type='text']{
+    height:100%;
+    font-size:40px;
+    padding-left:10px;
+    padding-top:10px;
+    text-transform:uppercase;
+    border:solid;
+  }
+  
+  .regLab{
+    display:block;
+    font-size:50px;
+  }
+  
+  .code{
+    width:100px;
+  }
+  
+  .number{
+    width:210px;
+    margin-left:-10px
+  }
+  
+  .regNums{
+    text-align:center;
+    margin-top:100px;
+  }
+  
+  
+  form button{
+    display:inline-block;
+    height:100%;
+  
+   font-size:20px;
+    font-weight:bold;
+    border-radius:0 20px 20px 0;
+  }
+  
+  form button:hover{
+  box-shadow: 5px 5px black;
+  }
+  
+  .block{
+    display:inline-block;
+    height: 40px;
+  }
+  /*  Font-weight: bold*/ 
+  
+  
+
+  select{
+    background-color:silver;
+    width:150px;
+    height:40px;
+  }
+
+  .filterbox{
+      margin-top:40px;
+      background-color:#dec87a;
+      padding:10px;
+  }
+
+  .bottom{
+      margin-top:30px;
+      width:100%;
+      border-top:solid;
+  }

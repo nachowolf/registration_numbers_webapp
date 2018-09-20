@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "v8.4.0"
+
+services:
+  - mysql
+
+env:
+  - DATABASE_URL= postgresql://localhost:5432/codex
+
+before_install:
+  - psql -c 'create database codex;' -U postgres
+  - psql -U postgres -d codex -a -f tables.sql
+
+addons:
+  apt:
+  packages:
+  - postgresql-server-dev-9.2
