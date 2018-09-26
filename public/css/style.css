@@ -39,6 +39,7 @@ header{
   padding-top:10px;
   text-transform:uppercase;
   border:solid;
+  text-align: center;
 }
 
 .regLab{
@@ -46,12 +47,9 @@ header{
   font-size:50px;
 }
 
-.code{
-  width:100px;
-}
 
 .number{
-  width:210px;
+  width:310px;
   margin-left:-10px
 }
 
@@ -97,7 +95,7 @@ select{
 
 .bottom{
     text-align:center;
-    margin-top:30px;
+    margin-top:70px;
     width:100%;
     border-top:solid;
 }
