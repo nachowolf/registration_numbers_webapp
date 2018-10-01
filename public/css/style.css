@@ -1,4 +1,6 @@
-
+body{
+  background-color:#fff2c9;
+}
 
 header{
   text-align: center;
@@ -34,12 +36,17 @@ header{
 }
 
 .regNums input[type='text']{
+  text-align:center;
   height:100%;
   font-size:40px;
   padding-top:10px;
   text-transform:uppercase;
   border:solid;
+<<<<<<< Updated upstream
   text-align: center;
+=======
+  border-left:none;
+>>>>>>> Stashed changes
 }
 
 .regLab{
@@ -95,7 +102,7 @@ select{
 
 .bottom{
     text-align:center;
-    margin-top:70px;
+    margin-top:100px;
     width:100%;
     border-top:solid;
 }

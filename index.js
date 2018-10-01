@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars');
 const pg = require('pg');
 const flash = require('express-flash');
 const session = require('express-session');
-const routes = require('./routes/routes.js');
+const routes = require('./routes/index.routes.js');
 const regnumFactory = require('./src/regnum.js');
 
 const app = express();
@@ -32,13 +32,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-app.use(session({
-    secret : "<add a secret string here>",
-    resave: false,
-    saveUninitialized: true
-  }));
+// app.use(session({
+//     secret : "<add a secret string here>",
+//     resave: false,
+//     saveUninitialized: true
+//   }));
 
-  app.use(flash());
+//   app.use(flash());
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
@@ -47,10 +47,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
-// Routes
-app.get('/', route.index)
-app.post('/registration-number', route.regNum)
-
+app.get('/', route.home)
 
 let PORT = process.env.PORT || 3005;
 
