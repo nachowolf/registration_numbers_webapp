@@ -54,6 +54,7 @@ app.get('/', route.home);
 app.post('/registration-number', route.regNum);
 app.post('/delete/:reg', route.deleter);
 app.post('/reset', route.reset);
+app.post('/location', route.filter);
 
 let PORT = process.env.PORT || 3005;
 

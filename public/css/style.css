@@ -42,11 +42,6 @@ header{
   padding-top:10px;
   text-transform:uppercase;
   border:solid;
-<<<<<<< Updated upstream
-  text-align: center;
-=======
-  border-left:none;
->>>>>>> Stashed changes
 }
 
 .regLab{
@@ -117,9 +112,12 @@ box-shadow: 0 3px 0 3px black;
 
 
 
-select{
+select {
+  text-align:center;
+    font-size: 1.5rem;
+    padding: 2px 5px;
   background-color:silver;
-  width:150px;
+  width:200px;
   height:40px;
 }
 
@@ -193,7 +191,7 @@ width:80%;
 text-transform:capitalize;
 }
 
-.btn input[type='submit']{
+input[type='submit']{
 margin-top:50px;
 margin-bottom:30px;
 text-align:center;
@@ -204,10 +202,11 @@ font-size:20px;
 background-color:silver;
 }
 
-.btn input[type='submit']:hover{
+input[type='submit']:hover{
 box-shadow:5px 5px black;
 }
 
 .right h1{
 text-decoration:underline;
 }
+

@@ -19,10 +19,18 @@ module.exports = function (factory, db) {
         await db.reset()
         res.redirect('/');
     }
+
+    async function filter (req, res) {
+        let city = req.body.location;
+        await db.allPlates(city);
+        res.redirect('/');
+    }
+
     return {
         home,
         regNum,
         deleter,
-        reset
+        reset,
+        filter
     };
 };

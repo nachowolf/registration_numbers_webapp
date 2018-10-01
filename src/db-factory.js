@@ -1,8 +1,13 @@
 module.exports = function (pool) {
-    async function allPlates () {
+    async function allPlates (city) {
         try {
-            let plates = await pool.query('select * from plates');
-            return plates.rows;
+            let plates;
+            if (city === undefined) {
+                plates = await pool.query('select * from plates');
+                return plates.rows;
+            } else {
+                plates = await pool.query('select * from plates where code = $1', [city]);
+            }
         } catch (error) {
             console.error(error);
         }
