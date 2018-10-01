@@ -2,29 +2,32 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const pg = require('pg');
-const flash = require('express-flash');
-const session = require('express-session');
+const app = express();
+// const flash = require('express-flash');
+// const session = require('express-session');
 const routes = require('./routes/index.routes.js');
 const regnumFactory = require('./src/regnum.js');
+const dbfactory = require('./src/db-factory.js');
 
-const app = express();
-const factory = regnumFactory();
-const route = routes(factory);
 
-// const Pool = pg.Pool;
+const Pool = pg.Pool;
 
-// let useSSL = false;
+let useSSL = false;
 let local = process.env.LOCAL || false;
 if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
-// const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/codex';
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/reg_numbers';
 
 
-// const pool = new Pool({
-//     connectionString,
-//     ssl: useSSL
-// });
+const pool = new Pool({
+    connectionString,
+    ssl: useSSL
+});
+
+const db = dbfactory(pool);
+const factory = regnumFactory(db);
+const route = routes(factory, db);
 
 
 app.use(bodyParser.json());
@@ -47,7 +50,10 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
-app.get('/', route.home)
+app.get('/', route.home);
+app.post('/registration-number', route.regNum);
+app.post('/delete/:reg', route.deleter);
+app.post('/reset', route.reset);
 
 let PORT = process.env.PORT || 3005;
 

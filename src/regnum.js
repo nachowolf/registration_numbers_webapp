@@ -1,44 +1,29 @@
-module.exports = function () {
+module.exports = function (db) {
+    //    value holder
 
-    let db = [
-        {'city': 'Cape Town',
-         'code': 'CA'},
-
-         {'city': 'Bellville',
-          'code' : 'CJ'}
-    ]
-//    value holder
-    let code = '';
-    let num = '';
 
     // regnum filter and adder
-    function add (plate){
-        let values = plate.replace('-', '').replace(' ', '').split('');
-        
-        for(let val of values){
-            
-            if(isNaN(val) == true){
-                code += val;
-            }
-            else if(isNaN(val) == false){
-                num += val;
-            }
-        }
+    async function add (plate) {
+        let code = '';
+        let num = '';
+        let codeFormat = plate.toUpperCase();
+        let values = codeFormat.toUpperCase().replace('-', '').replace(/\s/g, '').split('');
 
-        let codeChecker = db.map(cityCode => cityCode.code)
-        if(codeChecker == code){
-            return true
-        }
-        else{
-            return false
-        }
+        if (codeFormat === '' || codeFormat === undefined) {
+            return 'Cant be blank!';
+        } else {
+            for (let val of values) {
+                if (isNaN(val) === true) {
+                    code += val;
+                } else if (isNaN(val) === false) {
+                    num += val;
+                }
+            }
 
+            await db.add(code, codeFormat);
+            console.log(await db.allPlates());
+        }
     }
-
-
-
-
-
 
     return {
         add

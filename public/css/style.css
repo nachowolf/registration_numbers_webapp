@@ -66,24 +66,54 @@ header{
 }
 
 
-form button{
+.add button{
+  position: absolute;
   display:inline-block;
-  height:100%;
+  height:10%;
 
+  right:65%;
+ font-size:20px;
+  font-weight:bold;
+  border-radius:20px 0 0 20px;
+  background-color: green;
+}
+.reset button{
+  position: absolute;
+  display:inline-block;
+  height:10%;
+left:35%;
  font-size:20px;
   font-weight:bold;
   border-radius:0 20px 20px 0;
+  background-color:red;
 }
 
-form button:hover{
-box-shadow: 5px 5px black;
+form button{
+  margin-top:20px;
+ 
 }
+.add button:hover{
+box-shadow: 0 3px 0 3px black;
+}
+.reset button:hover{
+  box-shadow: 5px 5px black;
+  }
 
 .block{
   display:inline-block;
   height: 40px;
 }
-/*  Font-weight: bold*/ 
+
+.delete button{
+  margin-top:-20px;
+  color:black;
+  background-color:red;
+  border-radius:10%;
+}
+
+.delete button:hover{
+  box-shadow: 3px 3px black;
+}
 
 
 
@@ -102,7 +132,7 @@ select{
 
 .bottom{
     text-align:center;
-    margin-top:100px;
+    margin-top:130px;
     width:100%;
     border-top:solid;
 }

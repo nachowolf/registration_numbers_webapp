@@ -8,21 +8,17 @@
   
      <div class='block'>
 
-       <input class='number' type="text" name='number'maxlength='10' placeholder="CA 123-456"></div>
+       <input class='number' type="text" name='numberPlate'maxlength='10' placeholder="CA 123-456"></div>
      
-     <div class='block'><button>Add <i class="fa fa-angle-double-right fa-1x"></i></button></div>
-
-  
-     
+     <div class='add'><button>Add <i class="fas fa-plus fa-1x"></i></button></div>   
    </form>
+   <form action="/reset" method="POST"><div class='reset'><button>Reset <i class='fas fa-trash-alt'></i></button></div></form>
      </div>
    
    <div class='bottom'>
-  <div class='plates'><h2>CA 123-456</h2><a href="#">delete</a></div>
-    <div class='plates'><h2>CA 123-456</h2><a href="#">delete</a></div>
-    <div class='plates'><h2>CA 123-456</h2><a href="#">delete</a></div>
-    <div class='plates'><h2>CA 123-456</h2><a href="#">delete</a></div>
-    <div class='plates'><h2>CA 123-456</h2><a href="#">delete</a></div>
+     {{#each allPlates}}
+  <div class='plates'><h2>{{registration}}</h2><form action="delete/{{registration}}" method="POST"><div class='delete'><button>Delete</button></div></form></div>
+   {{/each}}
 
 </div>
   </div>
