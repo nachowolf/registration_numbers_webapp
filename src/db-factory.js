@@ -1,12 +1,15 @@
 module.exports = function (pool) {
-    async function allPlates (city) {
+    async function allPlates (codes) {
         try {
             let plates;
-            if (city === undefined) {
-                plates = await pool.query('select * from plates');
+            console.log(codes)
+            if (codes !== 'All' || codes !== null) {
+                plates = await pool.query('select registration from plates where code = $1', [codes]);
+                console.log(plates.rows);
                 return plates.rows;
             } else {
-                plates = await pool.query('select * from plates where code = $1', [city]);
+                plates = await pool.query('select * from plates');
+                return plates.rows;
             }
         } catch (error) {
             console.error(error);
@@ -42,10 +45,17 @@ module.exports = function (pool) {
         await pool.query('update plates set id = default');
         await pool.query('alter sequence plates_id_seq restart 1');
     }
+
+    async function filterList () {
+        let cities = await pool.query('select city, code from cities where code in (select code from plates)');
+
+        return cities.rows;
+    }
     return {
         add,
         allPlates,
         deleter,
-        reset
+        reset,
+        filterList
     };
 };

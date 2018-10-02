@@ -1,7 +1,11 @@
 module.exports = function (factory, db) {
     async function home (req, res) {
-    let allPlates = await db.allPlates();
-        res.render('home', {allPlates});
+        let allPlates = await db.allPlates();
+        let filterList = await db.filterList();
+        res.render('home', {
+            allPlates,
+            filterList
+        });
     }
     async function regNum (req, res) {
         let numberPlate = req.body.numberPlate;
@@ -9,19 +13,20 @@ module.exports = function (factory, db) {
         await factory.add(numberPlate);
         res.redirect('/');
     }
-    async function deleter(req, res) {
+    async function deleter (req, res) {
         let num = req.params.reg;
         await db.deleter(num);
         res.redirect('/');
     }
 
     async function reset (req, res) {
-        await db.reset()
+        await db.reset();
         res.redirect('/');
     }
 
-    async function filter (req, res) {
+    async function filterList (req, res) {
         let city = req.body.location;
+        console.log(city);
         await db.allPlates(city);
         res.redirect('/');
     }
@@ -31,6 +36,6 @@ module.exports = function (factory, db) {
         regNum,
         deleter,
         reset,
-        filter
+        filterList
     };
 };

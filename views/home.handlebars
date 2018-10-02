@@ -24,25 +24,6 @@
   </div>
 <div class="right">
   
-  <div class='citybox'>
-  <h1>Add City</h1>
-  <br>
-  
-<div>
-  <form action="#" method="POST">
-    
-    <label for="citycode"><h2>Code:</h2></label>
-    <div class='citycode'><input type="text" name='citycode' minlength='2' maxlength="3"></div>
-    
-    <label for="city"><h2>City:</h2></label>
-    <div class='city'><input type="text" name='city' class='code'></div>
-    
-    <div class='btn'><input type="submit"></div>
-    
-  </form>
-    </div>
-
-</div>
 <div class='filterbox'>
   <h1>Filter</h1>
   <br>
@@ -51,11 +32,10 @@
 
 <form action="/location" method="POST">
   <select name="location">
-    <option value=>All</option>
-    <option value="CA">Cape Town</option>
-    <option value="CJ">Bellville</option>
-    <option value="Paarl">Paarl</option>
-    <option value="Oudtshoorn">Oudtshoorn</option>
+    <option value="All" name='All'>All</option>
+    {{#each filterList}}
+    <option value="{{code}}" name='{{city}}'>{{city}}</option>
+    {{/each}}
   </select>
     <input type="submit" value='GO!'>
   </form>

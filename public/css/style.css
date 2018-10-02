@@ -30,7 +30,7 @@ header{
   padding-left:10px;
   display:inline-block;
   width:30%;
-  height:230px;
+  height:100%;
   text-align:center;
 
 }
@@ -122,10 +122,8 @@ select {
 }
 
 .filterbox{
-    margin-bottom:30px;
     background-color:#dec87a;
     padding:10px;
-    border-bottom:solid;
 }
 
 .bottom{
@@ -168,11 +166,6 @@ text-align:center;
 text-transform:none;
 }
 
-.citybox{
-background-color: #dec87a;
-padding:10px;
-border-bottom:solid;
-}
 
 .citycode input[type='text']{
 padding-top:10px;
@@ -183,13 +176,6 @@ text-transform:uppercase;
 
 }
 
-.city input[type='text']{
-padding-top:10px;
-text-align:center;
-font-size:40px;
-width:80%;
-text-transform:capitalize;
-}
 
 input[type='submit']{
 margin-top:50px;
