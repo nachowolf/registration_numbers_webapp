@@ -1,16 +1,12 @@
 module.exports = function (pool) {
-    async function allPlates (codes) {
+    async function allPlates (filter) {
         try {
-            let plates;
-            console.log(codes)
-            if (codes !== 'All' || codes !== null) {
-                plates = await pool.query('select registration from plates where code = $1', [codes]);
+          
+                let plates = await pool.query('select * from plates where code =$1', [filter]);
+
                 console.log(plates.rows);
                 return plates.rows;
-            } else {
-                plates = await pool.query('select * from plates');
-                return plates.rows;
-            }
+           
         } catch (error) {
             console.error(error);
         }

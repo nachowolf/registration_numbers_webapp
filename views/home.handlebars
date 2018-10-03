@@ -31,13 +31,13 @@
 <label for="location"><h2>Location:</h2></label>
 
 <form action="/location" method="POST">
-  <select name="location">
-    <option value="All" name='All'>All</option>
+  <select name="location" onchange='this.form.submit()' >
+    <option>All</option>
     {{#each filterList}}
-    <option value="{{code}}" name='{{city}}'>{{city}}</option>
+    <option value="{{code}}" name='{{city}}' {{selected}} >{{city}}</option>
     {{/each}}
   </select>
-    <input type="submit" value='GO!'>
+    <noscript><input type="submit"></noscript>
   </form>
 
 
