@@ -37,7 +37,7 @@ module.exports = function (db) {
     async function current (filterList, city) {
         for (let currenter of filterList.map(current => current.code)) {
             if (city === currenter) {
-                return 'selected';
+                return true;
             }
         }
     }

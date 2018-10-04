@@ -1,26 +1,22 @@
 module.exports = function (factory, db) {
     async function home (req, res) {
         let city = req.params.city;
-        
+
         let allPlates = await factory.filter(city);
         // let selector = await factory.current(city);
 
         let filterList = await db.filterList();
-        let selector = await factory.current(filterList, city);
-        
-        // let selector = function(code, city){
-        //     if (code === city){
-               
-        //         return "selected"
-        //     }
-        // }
-        
-        console.log(selector)
+
+        for (let list of filterList) {
+            if (list.code === city) {
+                list.selected = true;
+            }
+        }
 
         res.render('home', {
             allPlates,
-            filterList,
-            selector
+            filterList
+
         });
     }
     async function regNum (req, res) {
@@ -42,7 +38,6 @@ module.exports = function (factory, db) {
 
     async function filter (req, res) {
         let city = req.body.location;
-        console.log('this here =>', city)
 
         res.redirect('/' + city);
     }

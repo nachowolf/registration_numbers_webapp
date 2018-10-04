@@ -9,7 +9,6 @@ const routes = require('./routes/index.routes.js');
 const regnumFactory = require('./src/regnum.js');
 const dbfactory = require('./src/db-factory.js');
 
-
 const Pool = pg.Pool;
 
 let useSSL = false;
@@ -20,7 +19,6 @@ if (process.env.DATABASE_URL && !local) {
 const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/reg_numbers';
 // const connectionString = process.env.DATABASE_URL || 'postgresql://nachobits:1997@localhost:5432/reg_numbers';
 
-
 const pool = new Pool({
     connectionString,
     ssl: useSSL
@@ -29,7 +27,6 @@ const pool = new Pool({
 const db = dbfactory(pool);
 const factory = regnumFactory(db);
 const route = routes(factory, db);
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -45,7 +42,15 @@ app.use(bodyParser.urlencoded({
 //   app.use(flash());
 
 app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    helpers: {
+        'selector':
+        function () {
+            if (this.selected) {
+                return 'selected';
+            }
+        }
+    }
 }));
 
 app.set('view engine', 'handlebars');
