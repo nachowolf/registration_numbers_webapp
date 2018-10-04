@@ -29,3 +29,5 @@ module.exports = function (db) {
         add
     };
 };
+// dump sql table into psql
+// psql dbname < File.sql
