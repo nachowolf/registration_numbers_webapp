@@ -1,12 +1,17 @@
 module.exports = function (pool) {
-    async function allPlates (filter) {
+    async function allPlates () {
         try {
-          
-                let plates = await pool.query('select * from plates where code =$1', [filter]);
+            let plates = await pool.query('select * from plates');
+            return plates.rows;
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
-                console.log(plates.rows);
-                return plates.rows;
-           
+    async function filteredPlates (filter) {
+        try {
+            let plates = await pool.query('select * from plates where code = $1', [filter]);
+            return plates.rows;
         } catch (error) {
             console.error(error);
         }
@@ -52,6 +57,7 @@ module.exports = function (pool) {
         allPlates,
         deleter,
         reset,
-        filterList
+        filterList,
+        filteredPlates
     };
 };

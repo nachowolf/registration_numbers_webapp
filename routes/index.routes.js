@@ -1,10 +1,26 @@
 module.exports = function (factory, db) {
     async function home (req, res) {
-        let allPlates = await db.allPlates();
+        let city = req.params.city;
+        
+        let allPlates = await factory.filter(city);
+        // let selector = await factory.current(city);
+
         let filterList = await db.filterList();
+        let selector = await factory.current(filterList, city);
+        
+        // let selector = function(code, city){
+        //     if (code === city){
+               
+        //         return "selected"
+        //     }
+        // }
+        
+        console.log(selector)
+
         res.render('home', {
             allPlates,
-            filterList
+            filterList,
+            selector
         });
     }
     async function regNum (req, res) {
@@ -24,11 +40,11 @@ module.exports = function (factory, db) {
         res.redirect('/');
     }
 
-    async function filterList (req, res) {
+    async function filter (req, res) {
         let city = req.body.location;
-        console.log(city);
-        await db.allPlates(city);
-        res.redirect('/');
+        console.log('this here =>', city)
+
+        res.redirect('/' + city);
     }
 
     return {
@@ -36,6 +52,6 @@ module.exports = function (factory, db) {
         regNum,
         deleter,
         reset,
-        filterList
+        filter
     };
 };

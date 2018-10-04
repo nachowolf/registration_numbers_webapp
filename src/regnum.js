@@ -1,7 +1,6 @@
 module.exports = function (db) {
     //    value holder
 
-
     // regnum filter and adder
     async function add (plate) {
         let code = '';
@@ -21,12 +20,32 @@ module.exports = function (db) {
             }
 
             await db.add(code, codeFormat);
-            console.log(await db.allPlates());
+            console.log('this', await db.allPlates());
+        }
+    }
+
+    async function filter (city) {
+        if (city === 'All' || city === undefined) {
+            let allPlates = await db.allPlates();
+            return allPlates;
+        } else if (city !== 'All' && city !== undefined) {
+            let filteredPlates = await db.filteredPlates(city);
+            return filteredPlates;
+        }
+    }
+
+    async function current (filterList, city) {
+        for (let currenter of filterList.map(current => current.code)) {
+            if (city === currenter) {
+                return 'selected';
+            }
         }
     }
 
     return {
-        add
+        add,
+        filter,
+        current
     };
 };
 // dump sql table into psql

@@ -17,6 +17,7 @@ let local = process.env.LOCAL || false;
 if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/reg_numbers';
 // const connectionString = process.env.DATABASE_URL || 'postgresql://nachobits:1997@localhost:5432/reg_numbers';
 
 
@@ -51,10 +52,11 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.get('/', route.home);
+app.get('/:city', route.home);
 app.post('/registration-number', route.regNum);
 app.post('/delete/:reg', route.deleter);
 app.post('/reset', route.reset);
-app.post('/location', route.filterList);
+app.post('/location', route.filter);
 
 let PORT = process.env.PORT || 3005;
 
