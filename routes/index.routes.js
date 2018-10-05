@@ -21,9 +21,18 @@ module.exports = function (factory, db) {
     async function regNum (req, res) {
         let numberPlate = req.body.numberPlate;
         // factory.add(numberPlate);
-        await factory.add(numberPlate);
-        res.redirect('/');
+        let checker = await factory.add(numberPlate);
+        if (checker === 'blank') {
+
+            req.flash('error', 'Please insert a registration number!');
+            res.redirect('/');
+
+        } else {
+           
+            res.redirect('/');
+        }
     }
+
     async function deleter (req, res) {
         let num = req.params.reg;
         await db.deleter(num);

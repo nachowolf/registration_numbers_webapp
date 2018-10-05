@@ -9,6 +9,13 @@
      <div class='block'>
 
        <input class='number' type="text" name='numberPlate'maxlength='15' placeholder="CA 123-456"></div>
+       <div>{{#if messages.error}}
+         <div class='error'>
+                       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+           <h3>{{messages.error}}</h3>
+
+         </div>{{/if}}
+       </div>
      
      <div class='add'><button>Add <i class="fas fa-plus fa-1x"></i></button></div>   
    </form>

@@ -52,12 +52,21 @@ module.exports = function (pool) {
 
         return cities.rows;
     }
+
+    async function codes () {
+        let allCodes = await pool.query('select code from cities');
+
+        let code = allCodes.rows.map(cur => cur.code);
+        return code;
+    }
+
     return {
         add,
         allPlates,
         deleter,
         reset,
         filterList,
-        filteredPlates
+        filteredPlates,
+        codes
     };
 };

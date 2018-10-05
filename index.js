@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const pg = require('pg');
 const app = express();
-// const flash = require('express-flash');
-// const session = require('express-session');
+const flash = require('express-flash');
+const session = require('express-session');
 const routes = require('./routes/index.routes.js');
 const regnumFactory = require('./src/regnum.js');
 const dbfactory = require('./src/db-factory.js');
@@ -17,8 +17,8 @@ if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://psql:pg123@localhost:5432/reg_numbers';
-// const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/reg_numbers';
+// const connectionString = process.env.DATABASE_URL || 'postgresql://psql:pg123@localhost:5432/reg_numbers';
+const connectionString = process.env.DATABASE_URL || 'postgresql://coder:pg123@localhost:5432/reg_numbers';
 // const connectionString = process.env.DATABASE_URL || 'postgresql://nachobits:1997@localhost:5432/reg_numbers';
 
 const pool = new Pool({
@@ -35,13 +35,13 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// app.use(session({
-//     secret : "<add a secret string here>",
-//     resave: false,
-//     saveUninitialized: true
-//   }));
+app.use(session({
+    secret: '<add a secret string here>',
+    resave: false,
+    saveUninitialized: true
+}));
 
-//   app.use(flash());
+app.use(flash());
 
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',

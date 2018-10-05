@@ -196,3 +196,32 @@ box-shadow:5px 5px black;
 text-decoration:underline;
 }
 
+.error{
+  position: relative;
+  background-color:red;
+height:50px;
+width:70%;
+left:15%;
+}
+
+.error h3{
+color:black;
+padding-top:15px;
+
+}
+
+.closebtn {
+  padding-top:15px;
+  padding-right:15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
