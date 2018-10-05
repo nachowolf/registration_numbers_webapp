@@ -3,7 +3,6 @@ module.exports = function (factory, db) {
         let city = req.params.city;
 
         let allPlates = await factory.filter(city);
-        // let selector = await factory.current(city);
 
         let filterList = await db.filterList();
 
