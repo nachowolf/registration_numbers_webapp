@@ -9,8 +9,8 @@ env:
   - DATABASE_URL= postgresql://localhost:5432/reg_numbers
 
 before_install:
-  - psql -c 'create database codex;' -U postgres
-  - psql -U postgres -d codex -a -f tables.sql
+  - psql -c 'create database reg_numbers;' -U postgres
+  - psql -U postgres -d reg_numbers -a -f tables.sql
 
 addons:
   apt:
