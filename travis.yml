@@ -6,7 +6,7 @@ services:
   - mysql
 
 env:
-  - DATABASE_URL= postgresql://localhost:5432/codex
+  - DATABASE_URL= postgresql://localhost:5432/reg_numbers
 
 before_install:
   - psql -c 'create database codex;' -U postgres
