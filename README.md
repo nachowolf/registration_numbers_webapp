@@ -1,3 +1,3 @@
 # registration_numbers_webapp
 
-https://travis-ci.org/nachowolf/registration_numbers_webapp.svg?branch=master
+[![Build Status](https://travis-ci.org/nachowolf/registration_numbers_webapp.svg?branch=master)](https://travis-ci.org/nachowolf/registration_numbers_webapp)
