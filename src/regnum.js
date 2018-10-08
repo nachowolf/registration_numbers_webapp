@@ -2,7 +2,7 @@ module.exports = function (db) {
     //    value holder
 
     // regnum filter and adder
-    async function add (plate) {
+    async function add(plate) {
         let code = '';
         let num = '';
         let codeFormat = plate.toUpperCase();
@@ -11,10 +11,10 @@ module.exports = function (db) {
 
         if (codeFormat === '' || codeFormat === undefined) {
             console.log('fail 1')
-            return 'blank';
+            return 'declined';
         } else if ((values.length) < 5) {
             console.log('fail 2')
-            return 'blank';
+            return 'declined';
         } else {
             for (let val of values) {
                 if (isNaN(val) === true) {
@@ -26,23 +26,19 @@ module.exports = function (db) {
         }
         if ((code.length) < 2) {
             console.log('fail 3')
-            return 'blank';
-        } for (let codes of availableCodes) {
+            return 'declined';
+        }
+        for (let codes of availableCodes) {
             if (codes === code) {
-                console.log(code)
-                console.log(codes)
-                console.log(availableCodes)
-
                 await db.add(code, codeFormat);
-
-        return 'accepted';
+                return 'accepted';
             }
 
         }
-       
+
     }
 
-    async function filter (city) {
+    async function filter(city) {
         if (city === 'All' || city === undefined) {
             let allPlates = await db.allPlates();
             return allPlates;
@@ -52,7 +48,7 @@ module.exports = function (db) {
         }
     }
 
-    async function current (filterList, city) {
+    async function current(filterList, city) {
         for (let currenter of filterList.map(current => current.code)) {
             if (city === currenter) {
                 return true;

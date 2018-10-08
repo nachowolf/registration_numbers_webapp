@@ -22,7 +22,7 @@ module.exports = function (factory, db) {
         let numberPlate = req.body.numberPlate;
         // factory.add(numberPlate);
         let checker = await factory.add(numberPlate);
-        if (checker === 'blank') {
+        if (checker === 'declined') {
 
             req.flash('error', 'Please insert a registration number!');
             res.redirect('/');
