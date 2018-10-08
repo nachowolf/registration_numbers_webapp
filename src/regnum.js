@@ -10,8 +10,10 @@ module.exports = function (db) {
         let availableCodes = await db.codes();
 
         if (codeFormat === '' || codeFormat === undefined) {
+            console.log('fail 1')
             return 'blank';
         } else if ((values.length) < 5) {
+            console.log('fail 2')
             return 'blank';
         } else {
             for (let val of values) {
@@ -23,16 +25,19 @@ module.exports = function (db) {
             }
         }
         if ((code.length) < 2) {
+            console.log('fail 3')
             return 'blank';
         } for (let codes of availableCodes) {
             if (codes === code) {
+                console.log(code)
+                console.log(codes)
+                console.log(availableCodes)
+
                 await db.add(code, codeFormat);
-        console.log('this', await db.allPlates());
+
         return 'accepted';
             }
-            else{
-                return 'blank';
-            }
+
         }
        
     }
