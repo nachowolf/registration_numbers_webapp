@@ -50,5 +50,28 @@
 
 
   </div>
+
+  <div class='reg-list'>
+    <h1>Western Cape Registration Codes </h1>
+    <div class='city-list'>
+      <table>
+        <thead>
+        <tr>
+          <th><div class='header'>Code</div></th>
+          <th> <div class='header'>Location</div></th>
+        </tr>
+        </thead>
+        <tbody>
+       {{#each allCities}}
+       <tr>
+      <td>{{code}}</td>
+      <td>{{city}}</td>
+      </tr>
+       {{/each}}
+       </tbody>
+       </table>
+
+    </div>
+  </div>
 </div>
 

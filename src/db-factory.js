@@ -60,7 +60,13 @@ module.exports = function (pool) {
         return code;
     }
 
+    async function allCities (){
+        let cities = await pool.query('select code, city from cities')
+        return cities.rows
+    }
+
     return {
+        allCities,
         add,
         allPlates,
         deleter,

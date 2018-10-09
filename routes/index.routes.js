@@ -3,9 +3,9 @@ module.exports = function (factory, db) {
         let city = req.params.city;
 
         let allPlates = await factory.filter(city);
-
+        let allCities = await db.allCities();
         let filterList = await db.filterList();
-
+console.log(allCities)
         for (let list of filterList) {
             if (list.code === city) {
                 list.selected = true;
@@ -14,7 +14,8 @@ module.exports = function (factory, db) {
 
         res.render('home', {
             allPlates,
-            filterList
+            filterList,
+            allCities
 
         });
     }
