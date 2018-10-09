@@ -51,5 +51,4 @@ insert into cities (city, code) values('Porterville', 'CEX');
 insert into cities (city, code) values('Strand, Gordan`s Bay', 'CEY');
 insert into cities (city, code) values('Wolsey', 'CFA');
 insert into cities (city, code) values('Vredenburg, Saldanha Bay, St Helena Bay', 'CFG');
-insert into cities (city, code) values('Somerset West', 'CFM');
 insert into cities (city, code) values('Velddrif, Laaiplek', 'CFP');
