@@ -45,7 +45,6 @@ module.exports = function (pool) {
         await pool.query('TRUNCATE TABLE plates RESTART IDENTITY;');
         await pool.query('update plates set id = default');
         await pool.query('alter sequence plates_id_seq restart 1');
-        await pool.query('TRUNCATE TABLE cities RESTART IDENTITY;');
     }
 
     async function filterList () {
