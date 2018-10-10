@@ -226,31 +226,66 @@ padding-top:15px;
   color: black;
 }
 
-.city-list{
-  position: relative;
-  float:left;
-  height:200px; 
-  width:100%;
-overflow:hidden; 
-overflow-y:scroll;
-background-color:silver
-}
 
-.header {
+/* .city-list thead{
   padding: 10px 16px;
   background: #555;
   color: #f1f1f1;
-}
+  width:50%;
+} */
 
-thead tr {
-    display: block;
-    position: fixed;
-    width:100%;
-    padding-bottom:100px;
-  
-}
-
-thead {
+.city-list{
+  position: static;
+  float:left;
+  margin-top:-20px;
+  height:175px; 
   width:100%;
-  padding-bottom:100px;
+overflow:hidden; 
+overflow-y:scroll;
+background-color:white;
+} 
+
+
+
+.column1 {
+  float: left;
+  width: 30%;
 }
+.column2 {
+  float: left;
+  width: 70%;
+}
+
+.column1:nth-child(4n-3){
+  background-color:silver
+}
+
+.column2:nth-child(4n-2){
+  background-color:silver
+}
+
+
+.city-list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.heads h3{
+  background-color:#555;
+}
+
+.head1 {
+  float: left;
+  width: 30%;
+}
+
+.head2 {
+  float: left;
+  width: 70%;
+}
+
+.heads{
+  margin-top:-20px;
+}
+
