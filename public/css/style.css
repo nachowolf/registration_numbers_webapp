@@ -1,8 +1,10 @@
 body{
   background-color:#fff2c9;
+  font-family:"Courier New";
+
 }
 
-header{
+.header{
   text-align: center;
   padding-top:15px;
   font-size:50px;
@@ -42,11 +44,14 @@ header{
   padding-top:10px;
   text-transform:uppercase;
   border:solid;
+  font-family:"Courier New";
+
 }
 
 .regLab{
   display:block;
   font-size:50px;
+
 }
 
 
@@ -58,6 +63,8 @@ header{
 .regNums{
   text-align:center;
   margin-top:100px;
+  font-family:"Courier New";
+
 }
 
 
@@ -65,13 +72,18 @@ header{
   position: absolute;
   display:inline-block;
   height:10%;
-
-  right:65%;
+transform: rotateZ(180deg);
+  right:65.2%;
  font-size:20px;
   font-weight:bold;
-  border-radius:20px 0 0 20px;
+  border-radius:0 20px 20px 0;
   background-color: green;
 }
+
+.add p {
+  transform: rotateZ(-180deg)
+}
+
 .reset button{
   position: absolute;
   display:inline-block;
@@ -88,7 +100,8 @@ form button{
  
 }
 .add button:hover{
-box-shadow: 0 3px 0 3px black;
+box-shadow: 5px 5px black;
+
 }
 .reset button:hover{
   box-shadow: 5px 5px black;
@@ -141,6 +154,7 @@ height:50px;
 border:solid;
 border-color:black;
 background-color:yellow;
+border-radius:15px;
 color:black;
 
 }
