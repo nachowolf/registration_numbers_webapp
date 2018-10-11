@@ -19,12 +19,14 @@
      
      <div class='add'><button><p>Add <i class="fas fa-plus fa-1x"></i></p></button></div>   
    </form>
-   <form action="/reset" method="POST"><div class='reset'><button>Reset <i class='fas fa-trash-alt'></i></button></div></form>
+   <form action="/reset" method="POST" onsubmit="return confirm('Are you sure you want reset the page?');"><div class='reset'><button>Reset <i class='fas fa-trash-alt'></i></button></div></form>
      </div>
    
    <div class='bottom'>
      {{#each allPlates}}
-  <div class='plates'><h2>{{registration}}</h2><form action="delete/{{registration}}" method="POST"><div class='delete'><button>Delete</button></div></form></div>
+  <div class='plates'><h2>{{registration}}</h2><form action="delete/{{registration}}" method="POST" onsubmit="return confirm('Are you sure you want to delete the {{registration}} registration number?');">
+   <button class="delete" onclick="this.parentElement.style.display='none';&times;">X</button>
+  </form></div>
    {{/each}}
 
 </div>
