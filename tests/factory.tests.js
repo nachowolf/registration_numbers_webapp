@@ -22,9 +22,9 @@ describe('Registration web App filter tests', function () {
         assert.equal('invalid', await factory.add('F061-006'));
     });
 
-    it('should return invalid for reg number with code in database', async function () {
-        console.log('here=>', await factory.add('CJ 123-457'));
-        assert.equal('invalid', await factory.add('CJ 123-456'));
+    it('should return accepted for reg number with code in database', async function () {
+  
+        assert.equal('accepted', await factory.add('CJ 123-456'));
     });
 });
 
