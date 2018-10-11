@@ -121,7 +121,7 @@ display: inline-block;
   transition: 0.3s;
   border:none;
   background: none;
-  opacity: 0;
+  opacity: 0.3;
 }
 
 

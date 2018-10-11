@@ -32,18 +32,17 @@ module.exports = function (db) {
                 }
             }
         }
-
-        if ((code.length) < 2) {
-            return 'invalid';
-        }
-
         for (let codes of availableCodes) {
             if (codes === code) {
                 await db.add(code, codeFormat);
                 return 'accepted';
-            } else {
-                return 'invalid';
             }
+        }
+
+        if ((code.length) < 2) {
+            return 'invalid';
+        } else {
+            return 'invalid';
         }
     }
 
