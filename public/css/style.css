@@ -80,10 +80,6 @@ body{
   background-color: green;
 }
 
-/* .add p {
-  transform: rotateZ(-180deg)
-} */
-
 .reset button{
   position: absolute;
   display:inline-block;
