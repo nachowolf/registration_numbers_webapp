@@ -72,17 +72,17 @@ body{
   position: absolute;
   display:inline-block;
   height:10%;
-transform: rotateZ(180deg);
+/* transform: rotateZ(180deg); */
   right:65.2%;
  font-size:20px;
   font-weight:bold;
-  border-radius:0 20px 20px 0;
+  border-radius:20px 0 0 20px ;
   background-color: green;
 }
 
-.add p {
+/* .add p {
   transform: rotateZ(-180deg)
-}
+} */
 
 .reset button{
   position: absolute;
@@ -226,13 +226,28 @@ text-decoration:underline;
 height:50px;
 width:70%;
 left:15%;
+animation: error 3.5s linear forwards;
+}
+
+.success{
+  position: relative;
+  background-color:green;
+height:50px;
+width:70%;
+left:15%;
+animation: error 3.5s linear forwards;
 }
 
 .error h3{
-color:black;
+color:white;
 padding-top:15px;
-
 }
+
+.success h3{
+  color:white;
+  padding-top:15px;
+  
+  }
 
 .closebtn {
   padding-top:15px;
@@ -251,12 +266,6 @@ padding-top:15px;
 }
 
 
-/* .city-list thead{
-  padding: 10px 16px;
-  background: #555;
-  color: #f1f1f1;
-  width:50%;
-} */
 
 .city-list{
   position: static;
@@ -318,4 +327,9 @@ background-color:white;
 }
 .reg-list h1{
   margin-top:40px;
+}
+
+@keyframes error{
+  from{opacity: 1;}
+  to{opacity: 0;}
 }

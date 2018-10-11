@@ -1,8 +1,19 @@
-let code = document.querySelector('.code');
-let number = document.querySelector('.number');
+document.addEventListener('DOMContentLoaded', function () {
+    let successElem = document.querySelector('.successElem');
+    let errorElem = document.querySelector('.errorElem');
+    let success = document.querySelector('.success');
+    let error = document.querySelector('.error');
 
-function checkCode () {
-    let letters = code.value.length + 1;
-    console.log(letters);
-    if (letters <= 3)     { code.focus() ;}     else     { number.focus() ;}
-}
+    if (successElem.innerHTML !== '' && success !== null) {
+        setTimeout(function () {
+
+            success.style.display = 'none';
+        }, 3600);
+    }
+    else if (errorElem.innerHTML !== '' && error !== null) {
+        setTimeout(function () {
+
+            error.style.display = 'none';
+        }, 3600);
+    }
+});

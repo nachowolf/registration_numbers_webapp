@@ -22,14 +22,23 @@ module.exports = function (factory, db) {
     async function regNum (req, res) {
         let numberPlate = req.body.numberPlate;
         // factory.add(numberPlate);
+ 
         let checker = await factory.add(numberPlate);
+        // console.log(checker)
         if (checker === 'declined') {
-
             req.flash('error', 'Please insert a registration number!');
             res.redirect('/');
-
-        } else {
-           
+        }
+        if (checker === 'invalid') {
+            req.flash('error', 'Please insert a valid registration number!');
+            res.redirect('/');
+        }
+        if (checker === 'exists') {
+            req.flash('error', 'The inserted registration number already exists!');
+            res.redirect('/');
+        }
+        if (checker === 'accepted') {
+            req.flash('success', 'Registration number added!');
             res.redirect('/');
         }
     }
